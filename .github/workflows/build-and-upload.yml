@@ -33,4 +33,4 @@ jobs:
           context: images/cnpg-postgresql-17
           file: images/cnpg-postgresql-17/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}/cnpg-postgresql-17:latest
+          tags: ghcr.io/cyberbugjr/cnpg-postgresql-17:latest
