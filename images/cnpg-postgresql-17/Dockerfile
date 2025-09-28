@@ -5,11 +5,11 @@ USER root
 
 # We update the package list, install our package
 # and clean up any cache from the package manager
-COPY postgresql-17-vchord_0.5.2-1_amd64.deb /tmp/
+COPY postgresql-17-vchord_0.4.3-1_amd64.deb /tmp/
 RUN set -xe; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-		"/tmp/postgresql-17-vchord_0.5.2-1_amd64.deb" ; \
+		"/tmp/postgresql-17-vchord_0.4.3-1_amd64.deb" ; \
 	rm -fr /tmp/* ; \
 	rm -rf /var/lib/apt/lists/*;
 
