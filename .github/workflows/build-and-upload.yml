@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - images/cnpg-postgresql-17/**
+      - .github/workflows/build-and-upload.yml
   workflow_dispatch:
 
 jobs:
