@@ -6,8 +6,10 @@ FROM ghcr.io/netbox-community/netbox:${BASE}
 
 # The base image declares no USER (runs as root); the chart sets the runtime
 # securityContext, so don't override it here.
+# The image ships uv, not pip, and the venv at $VIRTUAL_ENV has no pip in it.
+# UV_NO_CACHE=1 is already set by the base image.
 COPY plugins.txt /tmp/plugins.txt
-RUN /opt/netbox/venv/bin/pip install --no-cache-dir -r /tmp/plugins.txt \
+RUN uv pip install -r /tmp/plugins.txt \
 	&& rm -f /tmp/plugins.txt
 
 # No collectstatic here: the netbox-docker entrypoint runs it at startup, which
